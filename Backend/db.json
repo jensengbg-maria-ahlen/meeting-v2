@@ -1,0 +1,95 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Bakdax",
+      "imgUrl": "https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lär dig baka med Camilla Hamid. Camilla visar dig enkla recept för när du vill ha lite extra lyx i vardagen. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam, aliquid deleniti vero, sequi dolor iusto eos nisi cumque ex officia ut! Eligendi aperiam sed perspiciatis itaque reiciendis necessitatibus exercitationem!",
+      "when": "22 Mars 2021",
+      "organizer": "Camilla Hamid",
+      "status": "new"
+    },
+    {
+      "id": 2,
+      "title": "Hip-hop/Street",
+      "imgUrl": "https://images.unsplash.com/photo-1504293476958-6d6d0257d014?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Den berömda dansaren John Doe kommer till Sverige för att lära en grunderna och mysiken i dansen. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam, aliquid deleniti vero, sequi dolor iusto eos nisi cumque ex officia ut!",
+      "when": "3-6 Mars 2021",
+      "organizer": "John Doe via Dansforum",
+      "status": "ongoing"
+    },
+    {
+      "id": 3,
+      "title": "Hundträff med familj",
+      "imgUrl": "https://images.unsplash.com/photo-1444212477490-ca407925329e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
+      "description": "Alla hundar är välkomna på denna träff. Stora som små debitis ipsam, aliquid deleniti vero, sequi dolor iusto eos nisi cumque ex officia ut! Eligendi aperiam sed perspiciatis itaque reiciendis necessitatibus exercitationem!",
+      "when": "14 Augusti 2020",
+      "organizer": "Hisingens glada hundsvans",
+      "status": "old"
+    },
+    {
+      "id": 4,
+      "title": "Det stora tobakseventet",
+      "imgUrl": "https://images.unsplash.com/photo-1545114687-ab1c9f9fc260?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1417&q=80",
+      "description": "Välkommen till det stora tobaskeventet, Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam, aliquid deleniti vero, sequi dolor iusto eos nisi cumque ex officia ut! Eligendi aperiam sed perspiciatis itaque reiciendis necessitatibus exercitationem!",
+      "when": "31 Maj 2021",
+      "organizer": "",
+      "status": "new"
+    },
+    {
+      "id": 5,
+      "title": "SF Bokhandelns stora bokrea",
+      "imgUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Blackfridays största rea någonsin på alla våra böcker. Lorem ipsum dolor sit amet consectetur adipisicing elit!",
+      "when": "30 Oktober 2020",
+      "organizer": "Science Fiction Bokhandeln",
+      "status": "old"
+    },
+    {
+      "id": 6,
+      "title": "Kometspaningen Balder",
+      "imgUrl": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1387&q=80",
+      "description": "Se när kometen Balder kommer anlända under natten. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam, aliquid deleniti vero, sequi dolor iusto eos nisi cumque ex officia ut! Eligendi aperiam sed perspiciatis itaque reiciendis necessitatibus exercitationem!",
+      "when": "16 November 2021",
+      "organizer": "NASA",
+      "status": "new"
+    },
+    {
+      "id": 7,
+      "title": "Högläsning ur Monster och Vidunder",
+      "imgUrl": "https://images.unsplash.com/photo-1524373050940-8f19e9b858a9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      "description": "Författaren Kristofer Gustafsson högläser ur sin bok Monster och Vidunder. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "when": "25 Juni 2021",
+      "organizer": "Kristofer Gustafsson",
+      "status": "ongoing"
+    },
+    {
+      "id": 8,
+      "title": "DriveIn-bio - the Hobbit",
+      "imgUrl": "https://images.unsplash.com/photo-1506466010722-395aa2bef877?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1488&q=80",
+      "description": "DriveIn-bio som spelar triologin av the Hobbit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam, aliquid deleniti vero, sequi dolor iusto eos nisi cumque ex officia ut! Eligendi aperiam sed perspiciatis itaque reiciendis necessitatibus exercitationem!",
+      "when": "14 Juli 2021",
+      "organizer": "SF Bio",
+      "status": "new"
+    },
+    {
+      "id": 9,
+      "title": "Glassätartävling",
+      "imgUrl": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Du kan vinna 10 000 om du lyckas äta flest glassar. Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+      "when": "10 Augusti 2020",
+      "organizer": "GB Gräddglass",
+      "status": "old"
+    },
+    {
+      "id": 10,
+      "title": "Svampplockning i Sjumilaskogen",
+      "imgUrl": "https://images.unsplash.com/photo-1519305124423-5ccccff55da9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam, aliquid deleniti vero, sequi dolor iusto eos nisi cumque ex officia ut! Eligendi aperiam sed perspiciatis itaque reiciendis necessitatibus exercitationem!",
+      "when": "13 September 2020",
+      "organizer": "Nalle Puh & co",
+      "status": "old"
+    }
+  ],
+  "reviews": []
+}
