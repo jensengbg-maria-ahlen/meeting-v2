@@ -3,9 +3,8 @@ import Vuex from 'vuex'
 import Event from '@/components/Event.vue'
 import Index from '@/store/index.js'
 
-
 describe('Event.vue', () => {
-    it('should display all events from store when loaded', () => {
+    it('should display all events and the events title from store when mounted', () => {
         const localVue = createLocalVue()
         localVue.use(Vuex)
         const store = new Vuex.Store(Index)
@@ -22,5 +21,26 @@ describe('Event.vue', () => {
 
         let allEventsExist = wrapper.findAll('.event').exists()
         expect(allEventsExist).toBeTruthy();
+
+        const expectedTitle = 'Bakdax'
+        const actualTitle = wrapper.find('.title').text()
+        expect(actualTitle).toBe(expectedTitle);
     })
+
+
+    it('should display event image when mounted', () => {
+        const wrapper = shallowMount(Event, {
+            propsData: {
+                event: {
+                    "title": "Bakdax"
+                }
+            }
+        });
+
+        const imgExist = wrapper.findAll('img')
+        console.log(imgExist)
+        //expect(imgExist).toBeTruthy();      
+    })
+
+    //it('should display event image when mounted')
 })

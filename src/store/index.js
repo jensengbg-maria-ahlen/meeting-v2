@@ -6,7 +6,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    apiUrl: 'http://localhost:3000',
     events: Array,
     show: {
       showMenu: false
@@ -19,8 +18,8 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchEventsFromBackend(ctx) {
-      let data = await ax.get(`${ctx.state.apiUrl}/events`)
-      ctx.commit('displayEvents', data.data)
+      let data = await ax.get(`/events`)
+      ctx.commit('displayEvents', data.data.events)
     }
   },
   modules: {
