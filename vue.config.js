@@ -1,5 +1,8 @@
 module.exports = {
-    devServer: {
-      proxy: 'http://localhost:3000'
-    }
+  devServer: {
+      disableHostCheck: true,
+      port: 8080,
+      proxy: 'http://localhost:3000/'
+  },
+  publicPath: "/"
 }
