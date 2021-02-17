@@ -2,4 +2,4 @@ build:
  docker:
   web: ./Dockerfile
 run:
- web: ./Dockerfile
+ web: node ./backend/server.js
