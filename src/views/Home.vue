@@ -1,22 +1,35 @@
 <template>
-  <div class="home">
-    <h1>MEETUP</h1>
-  </div>
+  <main class="home">
+    <header>
+      <h1>MEETUP</h1>
+    </header>
+  </main>
 </template>
 
 <script>
 export default {
   name: "Home",
   mounted() {
-    setTimeout( () => {
+    setTimeout(() => {
       this.$router.replace("/allevents");
-    }, 2000);
+    }, 4000);
   },
 };
 </script>
 
-<style>
- .home {
-   background: rgba(85, 149, 214, 0.521);
- }
+<style scoped>
+header {
+  background-image: url(./../assets/meeting-background.jpg);
+  background-size: cover;
+  height: 40vw;
+}
+
+h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  text-shadow: 3px 3px 3px black;
+}
 </style>

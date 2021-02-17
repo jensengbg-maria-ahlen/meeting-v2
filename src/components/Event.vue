@@ -1,11 +1,11 @@
 <template>
-    <div class="event">
+    <section class="event">
         <h2 class="title">{{event.title}}</h2>
         <img :src="event.imgUrl" alt="bild">
         <h3>Datum: {{event.when}}</h3>
         <h3>Arrangör: {{event.organizer}}</h3>
         <button @click="showInfo(event.id)"> Mer info </button>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -30,6 +30,10 @@ export default {
         box-shadow: 0 0 7px rgba(43, 41, 41, 0.623);
         float: left;
         width: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .event img {

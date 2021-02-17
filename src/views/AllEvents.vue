@@ -1,53 +1,120 @@
 <template>
-  <div id="allEvents">
-    <h1>This is all the events</h1>
-    <input type="text" placeholder="Search for event" v-model="search" @input="filter()">
+  <main id="allEvents">
+    <nav>
+      <div class="icons">
+        <img src="./../assets/m-icon.svg" alt="navIcon" />
+        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" />
+      </div>
+    </nav>
 
-    <div v-if="!filteredList || !filteredList.length">
-      <h2>No events available with your search</h2>
-    </div>
+    <section>
+      <input
+        type="text"
+        placeholder="Sök efter meetup"
+        v-model="search"
+        @input="filter()"
+      />
+      <div v-if="!filteredList || !filteredList.length">
+        <h2>Inga meetup tillgängliga med din sökning</h2>
+      </div>
+      <div v-else>
+        <Event v-for="event in filteredList" :key="event.id" :event="event" />
+      </div>
+    </section>
 
-    <div v-else>
-      <Event v-for="event in filteredList" :key="event.id" :event="event" />
-    </div>
-  </div>
+    <footer>
+      <p>Kontakta oss</p>
+      <img src="./../assets/facebook.svg" alt="facebook" />
+      <img src="./../assets/twitter.svg" alt="twitter" />
+      <img src="./../assets/instagram.svg" alt="instagram" />
+      <img src="./../assets/chat.svg" alt="chat" />
+    </footer>
+  </main>
 </template>
 
 <script>
-import Event from '@/components/Event'
+import Event from "@/components/Event";
 export default {
-  name: 'AllEvents',
+  name: "AllEvents",
   components: {
-    Event
+    Event,
   },
   props: {
-    events: Array
+    events: Array,
   },
   data: () => ({
     search: "",
-    filteredList: Array
+    filteredList: Array,
   }),
   methods: {
+    toggleMenu() {
+      this.$store.commit("toggleMenu");
+    },
+
     filter() {
-      if ( this.search == 'undefined' || this.search == null || this.search == '' ) {
-        this.filteredList = this.events
+      if (
+        this.search == "undefined" ||
+        this.search == null ||
+        this.search == ""
+      ) {
+        this.filteredList = this.events;
       } else {
         this.filteredList = this.events.filter((event) => {
-          let titleSearch = event.title.toLowerCase().includes(this.search.toLowerCase())
-          let organizerSearch = event.organizer.toLowerCase().includes(this.search.toLowerCase())
-          let dateSearch = event.when.toLowerCase().includes(this.search.toLowerCase())
-          
-          return (titleSearch, organizerSearch, dateSearch)
-        })
+          let titleSearch = event.title
+            .toLowerCase()
+            .includes(this.search.toLowerCase());
+          let organizerSearch = event.organizer
+            .toLowerCase()
+            .includes(this.search.toLowerCase());
+          let dateSearch = event.when
+            .toLowerCase()
+            .includes(this.search.toLowerCase());
+          return titleSearch + organizerSearch + dateSearch;
+        });
       }
-    }
+    },
   },
   beforeMount() {
     this.filter();
   },
-}
+};
 </script>
 
 <style>
+#allEvents {
+  display: flex;
+  flex-direction: column;
+}
 
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  margin: 0 1em 0.5em 1em;
+}
+
+nav img {
+  width: 4em;
+  height: 4em;
+}
+
+input {
+  padding: 1rem;
+  color: rgba(0, 0, 0, 0.842);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition: 0.15s all ease-in-out;
+  background: white;
+  display: flex;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 90%;
+}
+
+footer img {
+  width: 3em;
+  height: 3em;
+  margin: 2em;
+}
 </style>

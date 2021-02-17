@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     events: Array,
     show: {
-      showMenu: false
+      showMenu: false,
     },
     filteredEvents: Array,
     filter: ''
@@ -21,6 +21,10 @@ export default new Vuex.Store({
 
     displayFilterSearch(state, data) {
       state.filteredEvents = data
+    },
+
+    toggleMenu(state) {
+      state.show.showMenu = !state.show.showMenu
     }
   },
 
