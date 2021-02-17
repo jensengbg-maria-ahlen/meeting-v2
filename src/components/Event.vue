@@ -4,7 +4,7 @@
         <img :src="event.imgUrl" alt="bild">
         <h3>Datum: {{event.when}}</h3>
         <h3>Arrangör: {{event.organizer}}</h3>
-        <button @click="showInfo"> Mer info</button>
+        <button @click="showInfo(event.id)"> Mer info </button>
     </div>
 </template>
 
@@ -14,11 +14,8 @@ export default {
         event: Object
     },
     methods: {
-        goTo() {
-            console.log('Hej')
-        },
-        showInfo() {
-            console.log('merInfo')
+        showInfo(id) {
+            this.$router.push(`/eventinfo/${id}`)
         }
     }
 }
