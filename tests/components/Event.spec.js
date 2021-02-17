@@ -38,7 +38,6 @@ describe('Event.vue', () => {
         });
 
         const imgExist = wrapper.findAll('img')
-        console.log(imgExist)
         //expect(imgExist).toBeTruthy();      
     })
 

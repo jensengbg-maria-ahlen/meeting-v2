@@ -1,6 +1,6 @@
 <template>
     <div class="event">
-        <h3 class="title">{{event.title}}</h3>
+        <h2 class="title">{{event.title}}</h2>
         <img :src="event.imgUrl" alt="bild">
         <h3>Datum: {{event.when}}</h3>
         <h3>Arrangör: {{event.organizer}}</h3>
@@ -26,7 +26,13 @@ export default {
 
 <style>
     .event {
-        border: 1px solid black;
+        margin: 15px;
+        padding: 1rem;
+        border: 1px solid rgba(15, 15, 15, 0.329);
+        background-color: #c9c9c750;
+        box-shadow: 0 0 7px rgba(43, 41, 41, 0.623);
+        float: left;
+        width: 420px;
     }
 
     .event img {
