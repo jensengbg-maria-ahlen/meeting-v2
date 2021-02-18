@@ -17,8 +17,20 @@
       <div v-if="!filteredList || !filteredList.length">
         <h2>Inga meetup tillgängliga med din sökning</h2>
       </div>
-      <div v-else>
-        <Event v-for="event in filteredList" :key="event.id" :event="event" />
+      <div class="displayAllEvents" v-else>
+        <div>
+          <h1>Kommande events</h1>
+          <NewEvent v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'new'" />
+        </div>
+        <div>
+          <h1>Pågående Events</h1>
+          <OngoingEvents v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'ongoing'" />
+        </div>
+        <div>
+          <h1>Tidigare events</h1>
+          <OldEvent  v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'old'"/>
+        </div>
+        
       </div>
     </section>
 
@@ -33,11 +45,15 @@
 </template>
 
 <script>
-import Event from "@/components/Event";
+import NewEvent from "@/components/NewEvent";
+import OldEvent from '@/components/OldEvents';
+import OngoingEvents from '@/components/OngoingEvents';
 export default {
   name: "AllEvents",
   components: {
-    Event,
+    NewEvent,
+    OldEvent,
+    OngoingEvents
   },
   props: {
     events: Array,
@@ -82,6 +98,11 @@ export default {
 
 <style>
 #allEvents {
+  display: flex;
+  flex-direction: column;
+}
+
+.displayAllEvents {
   display: flex;
   flex-direction: column;
 }

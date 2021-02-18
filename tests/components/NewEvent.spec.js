@@ -1,7 +1,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import Event from '@/components/Event.vue'
+import Event from '@/components/NewEvent.vue'
 import Index from '@/store/index.js'
 
 describe('Event.vue', () => {

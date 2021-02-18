@@ -41,4 +41,11 @@ export default {
         height: 260px;
     }
 
+    .event button {
+        width: 84px;
+        height: 55px;
+        background: #FFFFFF;
+        border-radius: 50px;
+    }
+
 </style>
