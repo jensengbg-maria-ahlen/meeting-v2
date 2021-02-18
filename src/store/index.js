@@ -6,6 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    apiUrl: "https://api.jsonbin.io/b/602e22e00665b21b00b95609",
+    apiKey: "$2b$10$ufc9BTMG9.G3h7KQTN16h.ajL/VlR6u4PovfkP4ZjpLsao1S8ZMQC",
     events: Array,
     show: {
       showMenu: false,
@@ -30,7 +32,7 @@ export default new Vuex.Store({
 
   actions: {
     async fetchEventsFromBackend(ctx) {
-      let data = await ax.get(`/events`)
+      let data = await ax.get(`${ctx.state.apiUrl}`)
       ctx.commit('displayEvents', data.data.events)
     },
 
