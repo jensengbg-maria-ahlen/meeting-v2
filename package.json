@@ -6,7 +6,6 @@
     "node": "12.16.1"
   },
   "scripts": {
-    "postinstall": "ng build",
     "start": "http-server /app/dist/",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
