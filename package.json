@@ -1,7 +1,10 @@
 {
-  "name": "meetup-vue2",
-  "version": "0.1.0",
+  "name": "meetup",
+  "version": "2.0.0",
   "private": true,
+  "engines": {
+    "node": "12.16.1"
+  },
   "scripts": {
     "postinstall": "ng build",
     "start": "http-server /app/dist/",
@@ -17,6 +20,7 @@
     "express": "^4.17.1",
     "http-server": "^0.12.3",
     "lowdb": "^1.0.0",
+    "postinstall": "^0.7.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
@@ -33,5 +37,20 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensengbg-maria-ahlen/meetup.git"
+  },
+  "author": "Maria Åhlén",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jensengbg-maria-ahlen/meetup/issues"
+  },
+  "homepage": "https://github.com/jensengbg-maria-ahlen/meetup#readme"
 }
