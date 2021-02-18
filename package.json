@@ -7,7 +7,8 @@
     "npm": "6.13.4"
   },
   "scripts": {
-    "start": "concurrently --kill-others \"http-server /app/dist/ \"node ./backend/server.js",
+    "start": "concurrently --kill-others \" npm run server\" \"http-server /app/dist/",
+    "server": "node ./backend/server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --watch",
