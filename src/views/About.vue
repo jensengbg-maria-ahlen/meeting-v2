@@ -3,7 +3,7 @@
     <nav>
       <div class="icons">
         <img src="./../assets/m-icon.svg" alt="navIcon" />
-        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" />
+        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" class="menuIcon" />
       </div>
     </nav>
 
