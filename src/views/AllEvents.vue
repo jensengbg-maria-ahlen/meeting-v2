@@ -20,15 +20,15 @@
       <div class="displayAllEvents" v-else>
         <div>
           <h1>Kommande events</h1>
-          <NewEvent v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'new'" />
+          <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'new'" />
         </div>
         <div>
-          <h1>Pågående Events</h1>
-          <OngoingEvents v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'ongoing'" />
+          <h1>Pågående events</h1>
+          <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'ongoing'" />
         </div>
         <div>
           <h1>Tidigare events</h1>
-          <OldEvent  v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'old'"/>
+          <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'old'" />
         </div>
         
       </div>
@@ -45,15 +45,12 @@
 </template>
 
 <script>
-import NewEvent from "@/components/NewEvent";
-import OldEvent from '@/components/OldEvents';
-import OngoingEvents from '@/components/OngoingEvents';
+import Event from "@/components/Event";
+
 export default {
   name: "AllEvents",
   components: {
-    NewEvent,
-    OldEvent,
-    OngoingEvents
+    Event
   },
   props: {
     events: Array,
@@ -76,15 +73,9 @@ export default {
         this.filteredList = this.events;
       } else {
         this.filteredList = this.events.filter((event) => {
-          let titleSearch = event.title
-            .toLowerCase()
-            .includes(this.search.toLowerCase());
-          let organizerSearch = event.organizer
-            .toLowerCase()
-            .includes(this.search.toLowerCase());
-          let dateSearch = event.when
-            .toLowerCase()
-            .includes(this.search.toLowerCase());
+          let titleSearch = event.title.toLowerCase().includes(this.search.toLowerCase());
+          let organizerSearch = event.organizer.toLowerCase().includes(this.search.toLowerCase());
+          let dateSearch = event.when.toLowerCase().includes(this.search.toLowerCase());
           return titleSearch + organizerSearch + dateSearch;
         });
       }

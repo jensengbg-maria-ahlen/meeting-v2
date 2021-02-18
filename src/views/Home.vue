@@ -19,9 +19,9 @@ export default {
 
 <style scoped>
 header {
-  background-image: url(./../assets/meeting-background.jpg);
+  background-image: url('https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
   background-size: cover;
-  height: 40vw;
+  height: 60vw;
 }
 
 h1 {
@@ -29,7 +29,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
+  font-size: 3em;
   text-shadow: 3px 3px 3px black;
 }
 </style>

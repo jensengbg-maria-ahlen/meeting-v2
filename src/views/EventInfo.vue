@@ -7,13 +7,15 @@
       </div>
     </nav>
 
-    <section>
+    <section class="meetupInfo">
       <h1>{{ event.title }}</h1>
       <img :src="event.imgUrl" alt="bild" />
       <h2>{{ event.description }}</h2>
       <h3>Datum: {{ event.when }}</h3>
       <h3>Arrangör: {{ event.organizer }}</h3>
     </section>
+
+    <Signup :event="event" />
 
     <footer>
       <p>Kontakta oss</p>
@@ -26,7 +28,11 @@
 </template>
 
 <script>
+import Signup from './../components/Signup'
 export default {
+  components: {
+    Signup
+  },
   props: {
     events: Array,
   },
@@ -38,20 +44,12 @@ export default {
   computed: {
     event() {
       let eventInfo = {
-        title: this.chosenEvent ? this.chosenEvent.title : "no title available",
-        imgUrl: this.chosenEvent
-          ? this.chosenEvent.imgUrl
-          : "No image available",
-        description: this.chosenEvent
-          ? this.chosenEvent.description
-          : "No description available",
+        title: this.chosenEvent ? this.chosenEvent.title : "No title available",
+        imgUrl: this.chosenEvent ? this.chosenEvent.imgUrl : "No image available",
+        description: this.chosenEvent ? this.chosenEvent.description : "No description available",
         when: this.chosenEvent ? this.chosenEvent.when : "No date available",
-        organizer: this.chosenEvent
-          ? this.chosenEvent.organizer
-          : "No organizer available",
-        status: this.chosenEvent
-          ? this.chosenEvent.status
-          : "no status available",
+        organizer: this.chosenEvent ? this.chosenEvent.organizer : "No organizer available",
+        status: this.chosenEvent ? this.chosenEvent.status : "no status available",
       };
       return eventInfo;
     },
@@ -59,7 +57,7 @@ export default {
       if (this.$route !== undefined) {
         return this.events.find((event) => event.id == this.$route.params.id);
       } else {
-        return null;
+        return this.eventInfo;
       }
     },
   },
@@ -72,7 +70,7 @@ export default {
   flex-direction: column;
 }
 
-section {
+.meetupInfo {
   margin: 15px;
   padding: 1rem;
   border: 1px solid rgba(15, 15, 15, 0.329);

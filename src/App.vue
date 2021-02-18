@@ -1,44 +1,44 @@
 <template>
   <div id="app">
-    <div id="menuItem">
+    <div id="menuItem" >
       <Menu v-if="showMenu" />
     </div>
-    <router-view :events="allEvents" />
+    <router-view :events="allEvents"/>
   </div>
 </template>
 
 <script>
-import Menu from "@/components/Menu";
+import Menu from '@/components/Menu'
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    Menu,
+    Menu
   },
   computed: {
     showMenu() {
-      return this.$store.state.show.showMenu;
+      return this.$store.state.show.showMenu
     },
     allEvents() {
-      return this.$store.state.events;
+      return this.$store.state.events
     },
   },
   beforeMount() {
-    this.$store.dispatch("fetchEventsFromBackend");
-  },
-};
+    this.$store.dispatch("fetchEventsFromBackend")
+  }
+}
 </script>
 
 <style>
 #app {
-  max-width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
 #menuItem {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
 </style>
