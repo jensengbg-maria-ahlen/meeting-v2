@@ -11,4 +11,4 @@ COPY . .
 RUN npm run build
 
 EXPOSE 8080
-CMD [ "node", "./backend/server.js" ]
+CMD [ "http-server", "/app/dist/" ]
