@@ -4,7 +4,8 @@ const cors = require('cors')
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('./dist/meetup'))
+app.use(express.static('./../public'))
+app.use(express.static('./../src'))
 
 const eventRoute = require('./routes/events')
 app.use('/events', eventRoute)
