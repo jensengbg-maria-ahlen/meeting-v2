@@ -3,7 +3,7 @@
     <div id="menuItem" >
       <Menu v-if="showMenu" />
     </div>
-    <router-view :events="allEvents"/>
+    <router-view :events="allEvents" />
   </div>
 </template>
 

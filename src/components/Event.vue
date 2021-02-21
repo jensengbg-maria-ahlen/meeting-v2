@@ -2,9 +2,15 @@
   <section class="event">
     <h2 class="title">{{ event.title }}</h2>
     <img :src="event.imgUrl" alt="bild" />
-    <h3>Datum: {{ event.when }}</h3>
-    <h3>Arrangör: {{ event.organizer }}</h3>
-    <button @click="showInfo(event.id)">Mer info</button>
+    <h3>When: {{ event.when }}</h3>
+    <h3>Organizer: {{ event.organizer }}</h3>
+    <div v-if="event.status === 'old'">
+      <button @click="showInfo(event.id)">What did you think</button>
+    </div>
+    <div v-else>
+      <button @click="showInfo(event.id)">More info</button>
+    </div>
+    
   </section>
 </template>
 
@@ -42,7 +48,7 @@ export default {
 }
 
 .event button {
-  width: 84px;
+  width: 184px;
   height: 55px;
   background: #ffffff;
   border-radius: 50px;

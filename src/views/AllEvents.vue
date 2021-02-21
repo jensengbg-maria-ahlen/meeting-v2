@@ -3,31 +3,26 @@
     <nav>
       <div class="icons">
         <img src="./../assets/m-icon.svg" alt="navIcon" />
-        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" />
+        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" class="menuIcon" />
       </div>
     </nav>
 
     <section>
-      <input
-        type="text"
-        placeholder="Sök efter meetup"
-        v-model="search"
-        @input="filter()"
-      />
+      <input type="text" placeholder="Search for meetup" v-model="search" @input="filter()" />
       <div v-if="!filteredList || !filteredList.length">
-        <h2>Inga meetup tillgängliga med din sökning</h2>
+        <h2>No meetups available</h2>
       </div>
       <div class="displayAllEvents" v-else>
         <div>
-          <h1>Kommande events</h1>
+          <h1>Upcoming events</h1>
           <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'new'" />
         </div>
         <div>
-          <h1>Pågående events</h1>
+          <h1>Ongoing events</h1>
           <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'ongoing'" />
         </div>
         <div>
-          <h1>Tidigare events</h1>
+          <h1>Previous events</h1>
           <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'old'" />
         </div>
         
@@ -35,7 +30,7 @@
     </section>
 
     <footer>
-      <p>Kontakta oss</p>
+      <p>Contact us</p>
       <img src="./../assets/facebook.svg" alt="facebook" />
       <img src="./../assets/twitter.svg" alt="twitter" />
       <img src="./../assets/instagram.svg" alt="instagram" />
@@ -63,7 +58,6 @@ export default {
     toggleMenu() {
       this.$store.commit("toggleMenu");
     },
-
     filter() {
       if (
         this.search == "undefined" ||

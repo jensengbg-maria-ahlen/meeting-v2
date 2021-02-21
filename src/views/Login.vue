@@ -3,11 +3,22 @@
     <nav>
       <div class="icons">
         <img src="./../assets/m-icon.svg" alt="navIcon" />
-        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" />
+        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" class="menuIcon" />
       </div>
     </nav>
 
-    <h1>This is login</h1>
+    <section>
+      <h1>Log in</h1>
+      <div>
+        <p>Not registered with us yet?</p>
+        <p>Sign up here</p>
+      </div>
+      <label>Email address:</label>
+      <input type="text">
+      <label>Password:</label>
+      <input type="text">
+    </section>
+    
 
     <footer>
       <p>Contact us</p>

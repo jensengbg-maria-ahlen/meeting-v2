@@ -3,7 +3,7 @@
     <nav>
       <div class="icons">
         <img src="./../assets/m-icon.svg" alt="navIcon" />
-        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" />
+        <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" class="menuIcon" />
       </div>
     </nav>
 
@@ -11,14 +11,15 @@
       <h1>{{ event.title }}</h1>
       <img :src="event.imgUrl" alt="bild" />
       <h2>{{ event.description }}</h2>
-      <h3>Datum: {{ event.when }}</h3>
-      <h3>Arrangör: {{ event.organizer }}</h3>
+      <h3>When: {{ event.when }}</h3>
+      <h3>Organizer: {{ event.organizer }}</h3>
     </section>
 
     <Signup :event="event" />
+    <Comments v-for="review of event.reviews" :key="review.id" :review="review" />
 
     <footer>
-      <p>Kontakta oss</p>
+      <p>Contact us</p>
       <img src="./../assets/facebook.svg" alt="facebook" />
       <img src="./../assets/twitter.svg" alt="twitter" />
       <img src="./../assets/instagram.svg" alt="instagram" />
@@ -29,9 +30,11 @@
 
 <script>
 import Signup from './../components/Signup'
+import Comments from './../components/Comments'
 export default {
   components: {
-    Signup
+    Signup, 
+    Comments
   },
   props: {
     events: Array,
@@ -50,6 +53,7 @@ export default {
         when: this.chosenEvent ? this.chosenEvent.when : "No date available",
         organizer: this.chosenEvent ? this.chosenEvent.organizer : "No organizer available",
         status: this.chosenEvent ? this.chosenEvent.status : "no status available",
+        reviews: this.chosenEvent ? this.chosenEvent.reviews: "no comments available"
       };
       return eventInfo;
     },
