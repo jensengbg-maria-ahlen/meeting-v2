@@ -6,9 +6,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    apiUrl: "https://api.jsonbin.io/b/6032e0960866664b1080ca26",
+    apiUrl: "https://api.jsonbin.io/v3/b/6034df83f1be644b0a639a69",
+    apiKey: "$2b$10$DQabN5NhCvGHt9M5C5daz.GVexA/izze7N4i2qBeHNFyCa7lnWTmC", 
     events: Array,
-    allEventsWithComments: Array,
     show: {
       showMenu: false,
       showWelcome: false
@@ -37,15 +37,23 @@ export default new Vuex.Store({
 
   actions: {
     async fetchEventsFromBackend(ctx) {
-      let data = await ax.get(`${ctx.state.apiUrl}`)
-      ctx.commit('displayEvents', data.data.events)
+      let options = {
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": ctx.state.apiKey,
+          "X-Bin-Versioning": "false"
+        }
+      }
+      let data = await ax.get(`${ctx.state.apiUrl}`, options)
+      ctx.commit('displayEvents', data.data.record.events)
     },
 
     async postCommentToBackend(ctx,) {
       let options = {
         headers: {
           "Content-Type": "application/json",
-          "version": "latest"
+          "X-Master-Key": ctx.state.apiKey,
+          "X-Bin-Versioning": "false"
         }
       }
 
@@ -54,7 +62,7 @@ export default new Vuex.Store({
           events: ctx.state.events,
         }, 
         options)
-        ctx.commit('displayEvents', data.data.events)
+        ctx.commit('displayEvents', data.data.record.events)
       } catch (error) {
         console.log('error: ', error)
       }
