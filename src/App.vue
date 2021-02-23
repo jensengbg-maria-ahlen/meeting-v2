@@ -14,13 +14,13 @@ export default {
   components: {
     Menu
   },
-  computed: {
+  computed:{
     showMenu() {
       return this.$store.state.show.showMenu
     },
     allEvents() {
       return this.$store.state.events
-    },
+    }
   },
   beforeMount() {
     this.$store.dispatch("fetchEventsFromBackend")

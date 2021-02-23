@@ -47,9 +47,6 @@ export default {
   components: {
     Event
   },
-  props: {
-    events: Array,
-  },
   data: () => ({
     search: "",
     filteredList: Array,
@@ -60,13 +57,13 @@ export default {
     },
     filter() {
       if (
-        this.search == "undefined" ||
-        this.search == null ||
-        this.search == ""
+        this.search == "" ||
+        this.search === undefined ||
+        this.search === null 
       ) {
-        this.filteredList = this.events;
+        this.filteredList = this.$store.state.events;
       } else {
-        this.filteredList = this.events.filter((event) => {
+        this.filteredList = this.$store.state.events.filter((event) => {
           let titleSearch = event.title.toLowerCase().includes(this.search.toLowerCase());
           let organizerSearch = event.organizer.toLowerCase().includes(this.search.toLowerCase());
           let dateSearch = event.when.toLowerCase().includes(this.search.toLowerCase());
@@ -75,7 +72,7 @@ export default {
       }
     },
   },
-  beforeMount() {
+  mounted() {
     this.filter();
   },
 };

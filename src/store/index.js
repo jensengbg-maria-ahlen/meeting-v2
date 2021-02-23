@@ -6,12 +6,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    apiUrl: "https://api.jsonbin.io/v3/b/6034df83f1be644b0a639a69",
+    apiUrl: "https://api.jsonbin.io/v3/b/6034f76ba94a574b45211f4a",
     apiKey: "$2b$10$DQabN5NhCvGHt9M5C5daz.GVexA/izze7N4i2qBeHNFyCa7lnWTmC", 
-    events: Array,
+    events: {
+      type: Array,
+      default: []
+    },
     show: {
       showMenu: false,
-      showWelcome: false
+      showWelcome: false,
+      showThankYou: false
     },
     filteredEvents: Array,
     filter: ''
@@ -32,6 +36,10 @@ export default new Vuex.Store({
 
     showWelcome(state) {
       state.show.showWelcome = !state.show.showWelcome
+    },
+
+    showThankYou(state) {
+      state.show.showThankYou = !state.show.showThankYou
     }
   },
 

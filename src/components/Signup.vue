@@ -6,8 +6,8 @@
       <input type="text" placeholder="email" v-model="inputValue.email" />
       <button @click="apply()" class="applyButton">Apply</button>
       <h2 v-if="showWelcome" class="welcomeText">
-        Welcome {{ inputValue.name }} to the event. A confirmation with more
-        details has been sent to your email
+        Welcome to the event. A confirmation with more details has been sent to
+        your email
       </h2>
     </div>
 
@@ -15,10 +15,9 @@
       <h2>Please tell us your thoughts about this meetup</h2>
       <input type="text" placeholder="name" v-model="inputValue.name" />
       <input type="text" placeholder="email" v-model="inputValue.email" />
-      <textarea name="" id="" cols="100" rows="20" v-model="inputValue.comment">
-      </textarea>
+      <textarea name="" id="" cols="100" rows="20" v-model="inputValue.comment"></textarea>
       <button @click="sendIn()" class="sendInButton">Send in</button>
-
+      <h2 v-if="showThankYou">Thank you for your feedback</h2>
       <h2>Comments</h2>
     </div>
   </section>
@@ -36,6 +35,8 @@ export default {
         email: "",
         comment: "",
       },
+      showThankYou: false,
+      showWelcome: false,
     };
   },
   methods: {
@@ -45,7 +46,8 @@ export default {
       } else if (this.inputValue.email >= 0) {
         alert("You need to type in your email");
       } else {
-        this.$store.commit("showWelcome");
+        this.showWelcome = true;
+        this.clearInput();
       }
     },
 
@@ -59,14 +61,19 @@ export default {
       } else {
         let newComment = this.event.reviews;
         newComment.push(this.inputValue);
-
-        this.$store.dispatch("postCommentToBackend", newComment);
+        this.showThankYou = true;
+        //this.$store.dispatch("postCommentToBackend", newComment);
+        this.clearInput();
       }
     },
-  },
-  computed: {
-    showWelcome() {
-      return this.$store.state.show.showWelcome;
+    clearInput() {
+      let newValue = {
+        name: "",
+        email: "",
+        comment: "",
+      };
+      this.inputValue = newValue;
+      return this.inputValue;
     },
   },
 };

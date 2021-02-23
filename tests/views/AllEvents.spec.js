@@ -1,10 +1,14 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import AllEvents from '@/views/AllEvents.vue'
 import Vuex from 'vuex'
+import Index from '@/store/index.js'
 
 describe('AllEvents.vue', () => {
     it('should display filtered events when typing in the inputfield', () => {
         const filter = jest.spyOn(AllEvents.methods, 'filter')
+        const localVue = createLocalVue()
+        localVue.use(Vuex)
+        const store = new Vuex.Store(Index)
 
         const wrapper = shallowMount(AllEvents, {
             propsData: {
@@ -16,7 +20,9 @@ describe('AllEvents.vue', () => {
                         "organizer": "Camilla Hamid"
                     },
                 ]
-            }
+            },
+            localVue,
+            store
         })
 
         const inputField = wrapper.find('input[type="text"]')
