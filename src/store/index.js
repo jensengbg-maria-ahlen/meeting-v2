@@ -6,10 +6,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    apiUrl: "https://api.jsonbin.io/b/602fc6cdbd6b755d0199c0ad",
-    apiKey: '$2b$10$NNSfRdEe8UkN./ILcBB0LeAJNl//tf8.r2LEOlpimaXAFBjfFE1Lu',
+    apiUrl: "https://api.jsonbin.io/b/6032e0960866664b1080ca26",
     events: Array,
-    reviews: Array,
+    allEventsWithComments: Array,
     show: {
       showMenu: false,
       showWelcome: false
@@ -34,7 +33,6 @@ export default new Vuex.Store({
     showWelcome(state) {
       state.show.showWelcome = !state.show.showWelcome
     }
-
   },
 
   actions: {
@@ -43,23 +41,23 @@ export default new Vuex.Store({
       ctx.commit('displayEvents', data.data.events)
     },
 
-    async postCommentToBackend(ctx, value) {
+    async postCommentToBackend(ctx,) {
       let options = {
         headers: {
           "Content-Type": "application/json",
-          "secret-key": ctx.state.apiKey
+          "version": "latest"
         }
       }
+
       try {
-        let data = await ax.post(`${ctx.state.apiUrl}`, {
+        let data = await ax.put(`${ctx.state.apiUrl}`, {
           events: ctx.state.events,
-          reviews: value
-        }, options)
-        console.log('data', data)
+        }, 
+        options)
+        ctx.commit('displayEvents', data.data.events)
       } catch (error) {
-        console.log(error)
+        console.log('error: ', error)
       }
-      
     },
 
     async filterSearch(ctx, search) {

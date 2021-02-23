@@ -16,7 +16,7 @@
     </section>
 
     <Signup :event="event" />
-    <Comments v-for="review of event.reviews" :key="review.id" :review="review" />
+    <Comments v-for="review of event.reviews" :key="review.name" :review="review" />
 
     <footer>
       <p>Contact us</p>

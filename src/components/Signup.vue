@@ -15,14 +15,8 @@
       <h2>Please tell us your thoughts about this meetup</h2>
       <input type="text" placeholder="name" v-model="inputValue.name" />
       <input type="text" placeholder="email" v-model="inputValue.email" />
-      <textarea
-        name=""
-        id=""
-        cols="100"
-        rows="20"
-        v-model="inputValue.comment"
-      >
-        </textarea>
+      <textarea name="" id="" cols="100" rows="20" v-model="inputValue.comment">
+      </textarea>
       <button @click="sendIn()" class="sendInButton">Send in</button>
 
       <h2>Comments</h2>
@@ -54,6 +48,7 @@ export default {
         this.$store.commit("showWelcome");
       }
     },
+
     sendIn() {
       if (this.inputValue.name >= 0) {
         alert("You need to type in your name");
@@ -62,8 +57,10 @@ export default {
       } else if (this.inputValue.comment >= 0) {
         alert("You have not written a comment");
       } else {
-        this.$store.dispatch("postCommentToBackend", this.inputValue);
-        console.log("commentValue", this.inputValue);
+        let newComment = this.event.reviews;
+        newComment.push(this.inputValue);
+
+        this.$store.dispatch("postCommentToBackend", newComment);
       }
     },
   },
