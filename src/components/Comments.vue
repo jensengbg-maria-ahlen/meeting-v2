@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: 'Comments',
   props: {
     review: Object
   },

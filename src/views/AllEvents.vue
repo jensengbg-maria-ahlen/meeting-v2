@@ -9,23 +9,22 @@
 
     <section>
       <input type="text" placeholder="Search for meetup" v-model="search" @input="filter()" />
-      <div v-if="!filteredList || !filteredList.length">
+      <div v-if="!searchFilter || !searchFilter.length">
         <h2>No meetups available</h2>
       </div>
       <div class="displayAllEvents" v-else>
         <div>
           <h1>Upcoming events</h1>
-          <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'new'" />
+          <Event v-for="event in searchFilter" :key="event.id" :event="event" v-show="event.status === 'new'" />
         </div>
         <div>
           <h1>Ongoing events</h1>
-          <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'ongoing'" />
+          <Event v-for="event in searchFilter" :key="event.id" :event="event" v-show="event.status === 'ongoing'" />
         </div>
         <div>
           <h1>Previous events</h1>
-          <Event v-for="event in filteredList" :key="event.id" :event="event" v-show="event.status === 'old'" />
-        </div>
-        
+          <Event v-for="event in searchFilter" :key="event.id" :event="event" v-show="event.status === 'old'" />
+        </div>  
       </div>
     </section>
 
@@ -48,32 +47,20 @@ export default {
     Event
   },
   data: () => ({
-    search: "",
-    filteredList: Array,
+    search: ""
   }),
+  computed: {
+    searchFilter() {
+      return this.$store.getters['searchFilter']
+    }
+  },
   methods: {
     toggleMenu() {
       this.$store.commit("toggleMenu");
     },
     filter() {
-      if (
-        this.search == "" ||
-        this.search === undefined ||
-        this.search === null 
-      ) {
-        this.filteredList = this.$store.state.events;
-      } else {
-        this.filteredList = this.$store.state.events.filter((event) => {
-          let titleSearch = event.title.toLowerCase().includes(this.search.toLowerCase());
-          let organizerSearch = event.organizer.toLowerCase().includes(this.search.toLowerCase());
-          let dateSearch = event.when.toLowerCase().includes(this.search.toLowerCase());
-          return titleSearch + organizerSearch + dateSearch;
-        });
-      }
+      this.$store.dispatch("filterEvents", this.search)
     },
-  },
-  mounted() {
-    this.filter();
   },
 };
 </script>

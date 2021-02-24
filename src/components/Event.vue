@@ -16,20 +16,13 @@
 
 <script>
 export default {
+  name: 'event',
   props: {
     event: Object,
   },
   methods: {
     showInfo(id) {
       this.$router.push(`/eventinfo/${id}`);
-      
-      if(this.$store.state.show.showWelcome === true) {
-        return !this.$store.state.show.showWelcome
-      } 
-      
-      if(this.$store.state.show.showThankYou === true) {
-        return !this.$store.state.show.showThankYou
-      } 
     },
   },
 };

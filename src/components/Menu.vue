@@ -13,10 +13,10 @@ export default {
   name: "Menu",
   methods: {
     goTo(route) {
-      this.$store.commit('toggleMenu')
       if (route !== this.$route.path) {
         this.$router.push(route);
       }
+      this.$store.commit('toggleMenu')
     },
   },
 };

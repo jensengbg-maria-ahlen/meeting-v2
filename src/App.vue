@@ -16,7 +16,7 @@ export default {
   },
   computed:{
     showMenu() {
-      return this.$store.state.show.showMenu
+      return !this.$store.state.showMenu
     },
     allEvents() {
       return this.$store.state.events

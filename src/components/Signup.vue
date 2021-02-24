@@ -25,6 +25,7 @@
 
 <script>
 export default {
+  name: 'SignUp',
   props: {
     event: Object,
   },

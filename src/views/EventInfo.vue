@@ -8,11 +8,11 @@
     </nav>
 
     <section class="meetupInfo">
-      <h1>{{ event.title }}</h1>
-      <img :src="event.imgUrl" alt="bild" />
-      <h2>{{ event.description }}</h2>
-      <h3>When: {{ event.when }}</h3>
-      <h3>Organizer: {{ event.organizer }}</h3>
+      <h1>{{ event.title || 'No title available'}}</h1>
+      <img :src="event.imgUrl || 'No image available'" alt="bild" />
+      <h2>{{ event.description || 'No description available'}}</h2>
+      <h3>When: {{ event.when || 'No date available'}}</h3>
+      <h3>Organizer: {{ event.organizer || 'No organizer available'}}</h3>
     </section>
 
     <Signup :event="event" />
@@ -32,12 +32,10 @@
 import Signup from './../components/Signup'
 import Comments from './../components/Comments'
 export default {
+  name: 'EventInfo',
   components: {
     Signup, 
     Comments
-  },
-  props: {
-    events: Array,
   },
   methods: {
     toggleMenu() {
@@ -46,23 +44,7 @@ export default {
   },
   computed: {
     event() {
-      let eventInfo = {
-        title: this.chosenEvent ? this.chosenEvent.title : "No title available",
-        imgUrl: this.chosenEvent ? this.chosenEvent.imgUrl : "No image available",
-        description: this.chosenEvent ? this.chosenEvent.description : "No description available",
-        when: this.chosenEvent ? this.chosenEvent.when : "No date available",
-        organizer: this.chosenEvent ? this.chosenEvent.organizer : "No organizer available",
-        status: this.chosenEvent ? this.chosenEvent.status : "no status available",
-        reviews: this.chosenEvent ? this.chosenEvent.reviews: "no comments available"
-      };
-      return eventInfo;
-    },
-    chosenEvent() {
-      if (this.$route !== undefined) {
-        return this.events.find((event) => event.id == this.$route.params.id);
-      } else {
-        return this.eventInfo;
-      }
+      return this.$store.getters.chosenEvent(this.$route.params.id)
     },
   },
 };

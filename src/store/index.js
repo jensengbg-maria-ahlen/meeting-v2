@@ -5,43 +5,34 @@ import ax from 'axios'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+
   state: {
     apiUrl: "https://api.jsonbin.io/v3/b/6034f76ba94a574b45211f4a",
-    apiKey: "$2b$10$DQabN5NhCvGHt9M5C5daz.GVexA/izze7N4i2qBeHNFyCa7lnWTmC", 
-    events: {
-      type: Array,
-      default: []
-    },
-    show: {
-      showMenu: false,
-      showWelcome: false,
-      showThankYou: false
-    },
+    apiKey: "$2b$10$DQabN5NhCvGHt9M5C5daz.GVexA/izze7N4i2qBeHNFyCa7lnWTmC",
+    events: Array,
+    showMenu: true,
     filteredEvents: Array,
-    filter: ''
+    filter: {
+      search: ''
+    }
   },
+
 
   mutations: {
     displayEvents(state, data) {
       state.events = data
     },
 
-    displayFilterSearch(state, data) {
+    setFilterEvents(state, data) {
       state.filteredEvents = data
+      state.filter.search = data
     },
 
     toggleMenu(state) {
-      state.show.showMenu = !state.show.showMenu
-    },
-
-    showWelcome(state) {
-      state.show.showWelcome = !state.show.showWelcome
-    },
-
-    showThankYou(state) {
-      state.show.showThankYou = !state.show.showThankYou
+      state.showMenu = !state.showMenu
     }
   },
+
 
   actions: {
     async fetchEventsFromBackend(ctx) {
@@ -56,7 +47,7 @@ export default new Vuex.Store({
       ctx.commit('displayEvents', data.data.record.events)
     },
 
-    async postCommentToBackend(ctx,) {
+    async postCommentToBackend(ctx) {
       let options = {
         headers: {
           "Content-Type": "application/json",
@@ -64,24 +55,46 @@ export default new Vuex.Store({
           "X-Bin-Versioning": "false"
         }
       }
-
       try {
         let data = await ax.put(`${ctx.state.apiUrl}`, {
           events: ctx.state.events,
-        }, 
-        options)
+        },
+          options)
         ctx.commit('displayEvents', data.data.record.events)
       } catch (error) {
         console.log('error: ', error)
       }
     },
 
-    async filterSearch(ctx, search) {
-      await ctx.commit('setFilterSearch', search)
-      ctx.dispatch('searchFilter')
-    }
+    async filterEvents(ctx, search) {
+      await ctx.commit('setFilterEvents', search)
+      ctx.dispatch['searchFilter']
+    },
   },
 
-  modules: {
+
+  getters: {
+    chosenEvent(state) {
+      return (eventId) => {
+        return state.events.find((event) => event.id == eventId)
+      }
+    },
+
+    searchFilter(ctx) {
+      if (
+        ctx.filter.search == "" ||
+        ctx.filter.search === undefined ||
+        ctx.filter.search === null) {
+        ctx.filteredEvents = ctx.events
+      } else {
+        ctx.filteredEvents = ctx.events.filter((event) => {
+          let titleSearch = event.title.toLowerCase().includes(ctx.filter.search.toLowerCase());
+          let organizerSearch = event.organizer.toLowerCase().includes(ctx.filter.search.toLowerCase());
+          return titleSearch + organizerSearch
+        })
+      }
+      return ctx.filteredEvents
+    }
   }
+
 })
