@@ -2,13 +2,12 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import Event from '@/components/Event.vue'
-import Index from '@/store/index.js'
 
 describe('Event.vue', () => {
     it('should display all events and the events title from store when mounted', () => {
         const localVue = createLocalVue()
         localVue.use(Vuex)
-        const store = new Vuex.Store(Index)
+        const store = new Vuex.Store(Vuex)
 
         const wrapper = shallowMount(Event, {
             propsData: {

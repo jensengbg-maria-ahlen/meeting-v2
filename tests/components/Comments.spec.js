@@ -1,13 +1,12 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Comments from '@/components/Comments.vue'
 import Vuex from 'vuex'
-import Index from '@/store/index.js'
 
 describe('Comments.vue', () => {
     it('should display previous comment and by whom when mounted', () => {
         const localVue = createLocalVue()
         localVue.use(Vuex)
-        const store = new Vuex.Store(Index)
+        const store = new Vuex.Store(Vuex)
 
         const wrapper = shallowMount(Comments, {
             propsData: {

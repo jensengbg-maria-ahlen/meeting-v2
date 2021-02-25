@@ -1,7 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Signup from '@/components/Signup.vue'
 import Vuex from 'vuex'
-import Index from '@/store/index.js'
 
 describe('Signup.vue', () => {
     it('should display welcome to the event when user has pressed the apply button', async () => {
@@ -10,7 +9,7 @@ describe('Signup.vue', () => {
         const localVue = createLocalVue()
         localVue.use(Vuex)
 
-        const store = new Vuex.Store(Index)
+        const store = new Vuex.Store(Vuex)
 
         const wrapper = shallowMount(Signup, {
             propsData: {
@@ -35,7 +34,7 @@ describe('Signup.vue', () => {
     it('should display the apply button if the status of the event is new or ongoing', () => {
         const localVue = createLocalVue()
         localVue.use(Vuex)
-        const store = new Vuex.Store(Index)
+        const store = new Vuex.Store(Vuex)
 
         const wrapper = shallowMount(Signup, {
             propsData: {
@@ -62,7 +61,7 @@ describe('Signup.vue', () => {
         const localVue = createLocalVue()
         localVue.use(Vuex)
 
-        const store = new Vuex.Store(Index)
+        const store = new Vuex.Store(Vuex)
 
         const wrapper = shallowMount(Signup, {
             propsData: {
