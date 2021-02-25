@@ -1,17 +1,17 @@
 # MEETUP
 
 ## Länk till Github: 
-```
+
 https://github.com/jensengbg-maria-ahlen/meetup
 
 
 ## Molntjänst: 
-```
+
 Jag har använt mig av Heroku som molnapp. Den hittas här: https://meetup-maria.herokuapp.com/#/
 
 
 ## Level ups: 
-```
+
 1. API - Har skapat ett privat api på jsonbin.io som jag hämtar med fetch i min store.
 
 2. Systemtester och integrationstester - Jag testar routing, när man klickar på ett event och skickas vidare till en annan route. 
@@ -20,7 +20,7 @@ Jag har använt mig av Heroku som molnapp. Den hittas här: https://meetup-maria
 
 
 ## Reflektion: 
-```
+
 Det har känns mycket kul att få arbeta med ramverk igen. Tyvärr tycker jag att vi skulle gjort det i varje kurs sen vi lärde oss det första gången då vi är nya och det man lär sig är en färskvara. Har tagit extra lång tid att skapa ett projekt nu för att jag måste tyvärr googla mer än vad jag hade behövt. Eller att kurserna hade lagts upp i annorlunda ordning. 
 
 TDD - Detta tycker jag är det viktigaste vi har lärt oss i denna kursen. Testning är så viktigt för att verkligen se så att det fungerar som det ska. Är det något som inte fungerar korrekt så kan hela projektet bli förstört för den som har beställt. Det kan då ta onödigt lång tid att lösa och hitta, när det kanske hade kunnat lösas direkt om man testat ordentligt. 
@@ -37,7 +37,7 @@ Det som dock är bra när man bara har en frontend att ladda upp det är att det
 
 
 ## Steg för steg - upsättning av projekt: 
-```
+
 1. Skapa ett projekt med Vue CLI. Jag valde version 2, vue-router, vuex, jest, eslint och babel.
 
 2. Uppdatera eslint plugin till version 7.0.0 minst annars kommer inte Docker fungera. 
