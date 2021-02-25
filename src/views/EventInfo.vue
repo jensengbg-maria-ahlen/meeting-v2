@@ -9,7 +9,7 @@
 
     <section class="meetupInfo">
       <h1>{{ event.title || 'No title available'}}</h1>
-      <img :src="event.imgUrl || 'No image available'" alt="bild" />
+      <img :src="event.imgUrl || 'https://images.unsplash.com/photo-1594322436404-5a0526db4d13?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1315&q=80'" alt="bild" />
       <h2>{{ event.description || 'No description available'}}</h2>
       <h3>When: {{ event.when || 'No date available'}}</h3>
       <h3>Organizer: {{ event.organizer || 'No organizer available'}}</h3>
