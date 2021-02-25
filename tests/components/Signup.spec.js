@@ -53,10 +53,15 @@ describe('Signup.vue', () => {
         expect(applyButton).toBeTruthy()
         expect(applyButton).toBe(expectedText)
     })
-/*
-    it('should display the comment section if the status of the event is old', () => {
+
+
+
+    it('should display the thank you when user has pressed the button sendIn', async () => {
+        window.alert = jest.fn();
+        const sendIn = jest.spyOn(Signup.methods, 'sendIn')
         const localVue = createLocalVue()
         localVue.use(Vuex)
+
         const store = new Vuex.Store(Index)
 
         const wrapper = shallowMount(Signup, {
@@ -68,8 +73,13 @@ describe('Signup.vue', () => {
             localVue,
             store
         })
-    })
-    */
 
-   
+        let sendInButton = wrapper.find('.sendInButton')
+        await sendInButton.trigger('click')
+
+        expect(sendIn).toHaveBeenCalled();
+
+        const thankYouText = wrapper.find('.thankYouText')
+        expect(thankYouText).toBeTruthy()
+    })
 })

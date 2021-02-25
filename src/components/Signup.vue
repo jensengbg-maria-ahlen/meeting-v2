@@ -17,7 +17,7 @@
       <input type="text" placeholder="email" v-model="inputValue.email" />
       <textarea name="" id="" cols="100" rows="20" v-model="inputValue.comment"></textarea>
       <button @click="sendIn()" class="sendInButton">Send in</button>
-      <h2 v-if="showThankYou">Thank you for your feedback</h2>
+      <h2 v-if="showThankYou" class="thankYouText">Thank you for your feedback</h2>
       <h2>Comments</h2>
     </div>
   </section>
@@ -63,10 +63,11 @@ export default {
         let newComment = this.event.reviews;
         newComment.push(this.inputValue);
         this.showThankYou = true;
-        //this.$store.dispatch("postCommentToBackend", newComment);
+        this.$store.dispatch("postCommentToBackend", newComment);
         this.clearInput();
       }
     },
+
     clearInput() {
       let newValue = {
         name: "",

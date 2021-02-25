@@ -9,7 +9,10 @@ export default new Vuex.Store({
   state: {
     apiUrl: "https://api.jsonbin.io/v3/b/6034f76ba94a574b45211f4a",
     apiKey: "$2b$10$DQabN5NhCvGHt9M5C5daz.GVexA/izze7N4i2qBeHNFyCa7lnWTmC",
-    events: Array,
+    events: {
+      type: Array,
+      default: []
+    },
     showMenu: true,
     filteredEvents: Array,
     filter: {
@@ -76,7 +79,12 @@ export default new Vuex.Store({
   getters: {
     chosenEvent(state) {
       return (eventId) => {
-        return state.events.find((event) => event.id == eventId)
+        if(state.events.find) {
+          let eventChosen = state.events.find((event) => event.id == eventId)
+          return eventChosen
+        } else {
+          return {}
+        } 
       }
     },
 
