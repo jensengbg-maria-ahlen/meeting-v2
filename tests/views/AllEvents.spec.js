@@ -46,7 +46,8 @@ describe('AllEvents.vue', () => {
         const filter = jest.spyOn(AllEvents.methods, 'filter')
         const localVue = createLocalVue()
         localVue.use(Vuex)
-        const store = new Vuex.Store(Index)
+        const actions = { filterEvents: jest.fn() }
+        const store = new Vuex.Store({ actions })
 
         const wrapper = shallowMount(AllEvents, {
             propsData: {

@@ -3,7 +3,7 @@
     <div id="menuItem" >
       <Menu v-if="showMenu" />
     </div>
-    <router-view :events="allEvents" />
+    <router-view />
   </div>
 </template>
 
@@ -17,9 +17,6 @@ export default {
   computed:{
     showMenu() {
       return !this.$store.state.showMenu
-    },
-    allEvents() {
-      return this.$store.state.events
     }
   },
   beforeMount() {

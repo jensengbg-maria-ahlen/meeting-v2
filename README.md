@@ -3,21 +3,21 @@
 ## Länk till Github: 
 ```
 https://github.com/jensengbg-maria-ahlen/meetup
-```
+
 
 ## Molntjänst: 
 ```
 Jag har använt mig av Heroku som molnapp. Den hittas här: https://meetup-maria.herokuapp.com/#/
-```
+
 
 ## Level ups: 
 ```
-API - Har skapat ett privat api på jsonbin.io som jag hämtar med fetch i min store.
+1. API - Har skapat ett privat api på jsonbin.io som jag hämtar med fetch i min store.
 
-Systemtester och integrationstester - Jag testar routing, när man klickar på ett event och skickas vidare till en annan route. 
+2. Systemtester och integrationstester - Jag testar routing, när man klickar på ett event och skickas vidare till en annan route. 
 
-Sortera/filtrera - Har ett sökfält där jag kan söka efter eventnamn, datum och arrangör. 
-```
+3. Sortera/filtrera - Har ett sökfält där jag kan söka efter eventnamn, datum och arrangör. 
+
 
 ## Reflektion: 
 ```
@@ -34,7 +34,7 @@ Heroku - Funkar bra när man inte har en egen backend att ladda upp och köra. M
 Det som jag tycker är dåligt med detta är om jag hade jobbat med detta påriktigt och behövt skapa upp en egen backend. Jag hade kanske inte valt Heroku, utan till exempel Azure, som är mer känt och funkar riktigt bra. 
 
 Det som dock är bra när man bara har en frontend att ladda upp det är att det är smidigt när man kopplar det till sin github. Då är det bara att posta och så uppdateras det av sig själv. 
-```
+
 
 ## Steg för steg - upsättning av projekt: 
 ```
@@ -68,4 +68,3 @@ Det som dock är bra när man bara har en frontend att ladda upp det är att det
 9. Koppla ihop med ditt Github-konto och sök efter ditt projekt. 
 
 10. Anslut projektet och vänta tills den har byggt klart. Nu kan du se din app. 
-```
