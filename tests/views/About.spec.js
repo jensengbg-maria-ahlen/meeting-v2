@@ -5,7 +5,7 @@ import Vuex from 'vuex'
 describe('About.vue', () => {
     it('should display title when mounted', () => {
         const wrapper = shallowMount(About)
-        const expectedTitle = 'About us'
+        const expectedTitle = 'About the creator of Meetups'
         const actualTitle = wrapper.find('h1').text();
 
         expect(actualTitle).toBeTruthy()
