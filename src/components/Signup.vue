@@ -20,13 +20,13 @@
     <div v-show="event.status === 'old'" class="signUpOld">
       <h2>Please tell us your thoughts about this meetup</h2>
       <label for="">Name: </label>
-      <input type="text" placeholder="name" v-model="inputValue.name" />
+      <input type="text" v-model="inputValue.name" />
 
       <label for="">Email address:</label>
-      <input type="text" placeholder="email" v-model="inputValue.email" />
+      <input type="text" v-model="inputValue.email" />
 
       <label for="">Comment:</label>
-      <textarea cols="20" rows="20" v-model="inputValue.comment"></textarea>
+      <textarea cols="20" rows="10" v-model="inputValue.comment"></textarea>
 
       <button @click="sendIn()" class="sendInButton">Send in</button>
 
@@ -118,6 +118,9 @@ input {
 
 textarea {
   width: 90%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  font-size: medium;
 }
 
 

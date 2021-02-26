@@ -7,27 +7,18 @@
       </div>
     </nav>
 
-    <h1>About us</h1>
-    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore numquam
-      odit quos optio doloremque nulla ea error sequi excepturi tempore illo,
-      provident possimus veniam corrupti sint velit in maiores dicta.
+    <h1>About the creator of Meetups</h1>
+    <h2>The woman who created Meetups was Maria Åhlén</h2>
+    <p> <strong>
+      She made this webbpage when se was going i college on Jensens Yrkeshögskola.
       <br />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-      quasi itaque dicta voluptatem, debitis ipsam error corporis similique!
-      Blanditiis optio rerum recusandae est, a voluptatem explicabo maxime
-      reprehenderit labore et?
+      The webbpage is created on Vue version 2 and Vuex. It has VueRouter and HTTP-server installed for it to work online with Docker and on Heroku, which is a cloud based platform where you can upload your apps quickly.   
       <br />
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae
-      molestias quae, nostrum quia laborum necessitatibus nam eveniet harum
-      amet. Cumque vero, nam praesentium voluptate aliquid soluta sequi
-      cupiditate laborum incidunt.
+       <br />
+      <a href="https://signup.heroku.com/">HERE</a> you can find more information about Heroku. </strong>
     </p>
     <h3>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut inventore
-      rerum porro doloremque, fugiat, minus tenetur nostrum fuga voluptatem
-      quasi, officiis nobis odit totam nihil officia sed autem in quibusdam.
+      If you want to look at the source code for this project, please click <a href="https://github.com/jensengbg-maria-ahlen/meetup">HERE</a>
     </h3>
 
     <footer>
@@ -70,10 +61,12 @@ nav img {
   cursor: pointer;
 }
 
-
-footer p {
-  margin: 1em;
+a {
+  text-decoration: none;
+  color: rgb(102, 2, 102);
+  font-size: larger;
 }
+
 footer img {
   width: 3em;
   height: 3em;
