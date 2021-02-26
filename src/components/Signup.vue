@@ -1,24 +1,38 @@
 <template>
   <section>
-    <div v-show="event.status !== 'old'">
+    <div v-show="event.status !== 'old'" class="signUpNewOngoing">
       <h2>We would love you to join us on this meetup</h2>
-      <input type="text" placeholder="name" v-model="inputValue.name" />
-      <input type="text" placeholder="email" v-model="inputValue.email" />
+
+      <label for="">Name:</label>
+      <input type="text" v-model="inputValue.name" />
+
+      <label for="">Email address:</label>
+      <input type="text" v-model="inputValue.email" />
+
       <button @click="apply()" class="applyButton">Apply</button>
+
       <h2 v-if="showWelcome" class="welcomeText">
         Welcome to the event. A confirmation with more details has been sent to
         your email
       </h2>
     </div>
 
-    <div v-show="event.status === 'old'">
+    <div v-show="event.status === 'old'" class="signUpOld">
       <h2>Please tell us your thoughts about this meetup</h2>
+      <label for="">Name: </label>
       <input type="text" placeholder="name" v-model="inputValue.name" />
+
+      <label for="">Email address:</label>
       <input type="text" placeholder="email" v-model="inputValue.email" />
-      <textarea name="" id="" cols="100" rows="20" v-model="inputValue.comment"></textarea>
+
+      <label for="">Comment:</label>
+      <textarea cols="20" rows="20" v-model="inputValue.comment"></textarea>
+
       <button @click="sendIn()" class="sendInButton">Send in</button>
+
       <h2 v-if="showThankYou" class="thankYouText">Thank you for your feedback</h2>
-      <h2>Comments</h2>
+
+      <h2>All our reviews</h2>
     </div>
   </section>
 </template>
@@ -82,4 +96,43 @@ export default {
 </script>
 
 <style>
+
+.signUpOld {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin: 1em;
+}
+
+input {
+  padding: 1rem;
+  color: rgba(0, 0, 0, 0.842);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition: 0.15s all ease-in-out;
+  background: white;
+  display: flex;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 90%;
+}
+
+textarea {
+  width: 90%;
+}
+
+
+button {
+  width: 184px;
+  height: 55px;
+  background: #ffffff;
+  border-radius: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.applyButton, .sendInButton {
+  margin-top: 2em;
+}
 </style>

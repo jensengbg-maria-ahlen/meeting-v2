@@ -20,7 +20,7 @@ describe('Comments.vue', () => {
             store
         })
 
-        const expectedName = 'Maria'
+        const expectedName = 'By: Maria'
         const expectedComment = 'En kommentar'
 
         const actualName = wrapper.find('h3').text()

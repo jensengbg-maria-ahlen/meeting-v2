@@ -2,7 +2,7 @@
   <main id="eventInfo">
     <nav>
       <div class="icons">
-        <img src="./../assets/m-icon.svg" alt="navIcon" />
+        <img src="./../assets/m-icon.svg" alt="navIcon" @click="goHome('/allevents')" />
         <img src="./../assets/menu.svg" alt="menuIcon" @click="toggleMenu" class="menuIcon" />
       </div>
     </nav>
@@ -41,6 +41,9 @@ export default {
     toggleMenu() {
       this.$store.commit("toggleMenu");
     },
+    goHome(route) {
+      this.$router.push(route);
+    }
   },
   computed: {
     event() {
@@ -73,6 +76,7 @@ export default {
 img {
   max-width: 70%;
   max-height: 70%;
+  
 }
 
 .icons {
@@ -87,8 +91,13 @@ nav {
 nav img {
   width: 4em;
   height: 4em;
+  cursor: pointer;
 }
 
+
+footer p {
+  margin: 1em;
+}
 footer img {
   width: 3em;
   height: 3em;

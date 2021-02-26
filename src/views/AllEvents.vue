@@ -88,6 +88,7 @@ nav {
 nav img {
   width: 4em;
   height: 4em;
+  cursor: pointer;
 }
 
 input {
@@ -102,6 +103,19 @@ input {
   width: 90%;
 }
 
+button {
+  width: 184px;
+  height: 55px;
+  background: #ffffff;
+  border-radius: 50px;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 2em;
+  cursor: pointer;
+}
+
+footer p {
+  margin: 1em;
+}
 footer img {
   width: 3em;
   height: 3em;

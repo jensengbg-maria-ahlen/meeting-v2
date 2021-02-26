@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="menuItem" >
+    <div id="menuItem">
       <Menu v-if="showMenu" />
     </div>
     <router-view />
@@ -8,34 +8,36 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
+import Menu from "@/components/Menu";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Menu
+    Menu,
   },
-  computed:{
+  computed: {
     showMenu() {
-      return !this.$store.state.showMenu
-    }
+      return !this.$store.state.showMenu;
+    },
   },
   beforeMount() {
-    this.$store.dispatch("fetchEventsFromBackend")
-  }
-}
+    this.$store.dispatch("fetchEventsFromBackend");
+  },
+};
 </script>
 
 <style>
 #app {
-    max-width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  margin: 1em;
+}
+
 #menuItem {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-    }
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 </style>

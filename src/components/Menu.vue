@@ -53,5 +53,6 @@ a {
   text-decoration: none;
   margin: 1rem;
   text-align: right;
+  cursor: pointer;
 }
 </style>

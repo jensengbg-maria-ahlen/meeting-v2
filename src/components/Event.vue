@@ -48,10 +48,16 @@ export default {
   height: 260px;
 }
 
-.event button {
+button {
   width: 184px;
   height: 55px;
   background: #ffffff;
+  border: 1px solid rgba(15, 15, 15, 0.329);
   border-radius: 50px;
+  box-shadow: 0 0 7px rgba(43, 41, 41, 0.623);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  font-size: medium;
+  cursor: pointer;
 }
 </style>

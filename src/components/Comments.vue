@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <h3>{{comments.name}}</h3>
+  <section class="commentSection">
+    <h3>By: {{comments.name}}</h3>
     <h4>{{comments.comment}}</h4>
   </section>
 </template>
@@ -25,5 +25,11 @@ export default {
 </script>
 
 <style>
-
+  .commentSection {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 1em;
+    border: 3px solid #575757;
+  }
 </style>
