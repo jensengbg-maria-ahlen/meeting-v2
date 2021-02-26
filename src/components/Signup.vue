@@ -9,7 +9,7 @@
       <label for="">Email address:</label>
       <input type="text" v-model="inputValue.email" />
 
-      <button @click="apply()" class="applyButton">Apply</button>
+      <button @click="apply()" class="applyButton" :disabled="showApplyButton">Apply</button>
 
       <h2 v-if="showWelcome" class="welcomeText">
         Welcome to the event. A confirmation with more details has been sent to
@@ -28,7 +28,7 @@
       <label for="">Comment:</label>
       <textarea cols="20" rows="10" v-model="inputValue.comment"></textarea>
 
-      <button @click="sendIn()" class="sendInButton">Send in</button>
+      <button @click="sendIn()" class="sendInButton" :disabled="showSendInButton">Send in</button>
 
       <h2 v-if="showThankYou" class="thankYouText">Thank you for your feedback</h2>
 
@@ -52,34 +52,37 @@ export default {
       },
       showThankYou: false,
       showWelcome: false,
+      disabled: true
     };
+  },
+  computed: {
+  showSendInButton() {
+    if( this.inputValue.name < 1 || this.inputValue.email < 1 || this.inputValue.comment < 1 ) {
+      return this.disabled
+    } else {
+      return !this.disabled;
+    }
+  }, 
+  showApplyButton() {
+    if( this.inputValue.name < 1 || this.inputValue.email < 1 ) {
+      return this.disabled
+    } else {
+      return !this.disabled;
+    }
+  }
   },
   methods: {
     apply() {
-      if (this.inputValue.name >= 0) {
-        alert("You need to type in your name");
-      } else if (this.inputValue.email >= 0) {
-        alert("You need to type in your email");
-      } else {
         this.showWelcome = true;
         this.clearInput();
-      }
     },
 
     sendIn() {
-      if (this.inputValue.name >= 0) {
-        alert("You need to type in your name");
-      } else if (this.inputValue.email >= 0) {
-        alert("You need to type in your email");
-      } else if (this.inputValue.comment >= 0) {
-        alert("You have not written a comment");
-      } else {
         let newComment = this.event.reviews;
         newComment.push(this.inputValue);
         this.showThankYou = true;
         this.$store.dispatch("postCommentToBackend", newComment);
         this.clearInput();
-      }
     },
 
     clearInput() {

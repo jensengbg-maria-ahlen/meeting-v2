@@ -1,13 +1,8 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Comments from '@/components/Comments.vue'
-import Vuex from 'vuex'
 
 describe('Comments.vue', () => {
-    it('should display previous comment and by whom when mounted', () => {
-        const localVue = createLocalVue()
-        localVue.use(Vuex)
-        const store = new Vuex.Store(Vuex)
-
+    it('should display a comment and by who when mounted', () => {
         const wrapper = shallowMount(Comments, {
             propsData: {
                 review: {
@@ -16,8 +11,6 @@ describe('Comments.vue', () => {
                     comment: "En kommentar"
                 }
             },
-            localVue,
-            store
         })
 
         const expectedName = 'By: Maria'

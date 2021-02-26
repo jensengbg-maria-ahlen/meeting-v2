@@ -43,9 +43,6 @@ export default {
   align-items: center;
 }
 
-.event img {
-  width: 90%;
-}
 
 button {
   width: 20%;

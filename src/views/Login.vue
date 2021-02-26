@@ -35,7 +35,7 @@
         <label>Show password</label>
       </div>
 
-      <button @click="logIn">Log in</button>
+      <button @click="logIn" :disabled="showButton">Log in</button>
     </section>
 
     <section v-show="isLoggedIn" class="welcomeSection">
@@ -66,7 +66,17 @@ export default {
       password: "",
     },
     passwordFieldType: "password",
+    disabled: true
   }),
+  computed: {
+    showButton() {
+      if( this.inputValue.name < 1 || this.inputValue.password < 1 ) {
+        return this.disabled
+      } else {
+        return !this.disabled;
+      }
+    }
+  },
   methods: {
     toggleMenu() {
       this.$store.commit("toggleMenu");
@@ -79,16 +89,10 @@ export default {
         this.passwordFieldType === "password" ? "text" : "password";
     },
     logIn() {
-      if (this.inputValue.email >= 0) {
-        alert("You need to type in your email adress");
-      } else if (this.inputValue.password >= 0) {
-        alert("You need to type in your password");
-      } else {
         this.isShowing = false;
         this.isLoggedIn = true;
       }
     },
-  },
 };
 </script>
 

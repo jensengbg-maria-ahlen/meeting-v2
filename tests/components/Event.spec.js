@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Event from '@/components/Event.vue'
 
 describe('Event.vue', () => {
-    it('should display all events and the events title from store when mounted', () => {
+    it('should display event and the title when mounted', () => {
         const localVue = createLocalVue()
         localVue.use(Vuex)
         const store = new Vuex.Store(Vuex)
@@ -12,7 +12,7 @@ describe('Event.vue', () => {
         const wrapper = shallowMount(Event, {
             propsData: {
                 event: {
-                    "title": "Bakdax"
+                    title: "Bakdax"
                 }
             },
             localVue,
@@ -28,23 +28,7 @@ describe('Event.vue', () => {
     })
 
 
-
-    it('should display event image when mounted', () => {
-        const wrapper = shallowMount(Event, {
-            propsData: {
-                event: {
-                    "imgUrl": "http://imgurl.com"
-                }
-            }
-        });
-
-        const imgExist = wrapper.findAll('img')
-        expect(imgExist).toBeTruthy();      
-    })
-
-
-
-    it('should display tha button when mounted and go to individual event when button is clicked', async () => {
+    it('should display a button when mounted and go to individual event when button is clicked', async () => {
         const localVue = createLocalVue()
         localVue.use(VueRouter)
         const router = new VueRouter()
